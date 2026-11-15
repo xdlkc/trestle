@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>个人工作台 · 只读看板</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="badge-readonly">只读模式</span>
+        <strong id="ws-name">个人工作台</strong>
+        <span id="ws-meta" class="muted"></span>
+      </div>
+      <nav class="nav-tabs" id="nav-tabs">
+        <button type="button" data-view="overview" class="active">工作总览</button>
+        <button type="button" data-view="board">任务看板</button>
+        <button type="button" data-view="sessions">会话目录</button>
+        <button type="button" data-view="repos">仓库与评审</button>
+        <button type="button" data-view="timeline">进展动态</button>
+      </nav>
+      <div class="actions">
+        <span id="refresh-status" class="muted"></span>
+        <button type="button" id="btn-refresh" class="btn-primary">刷新快照</button>
+      </div>
+    </header>
+
+    <main id="app-root" class="container"></main>
+
+    <div id="drawer-backdrop" class="backdrop hidden">
+      <aside class="drawer" aria-label="任务详情">
+        <div class="drawer-header">
+          <strong id="drawer-title">任务详情</strong>
+          <div class="drawer-nav">
+            <button type="button" id="btn-prev-task">上一条</button>
+            <button type="button" id="btn-next-task">下一条</button>
+            <button type="button" id="btn-close-drawer">关闭</button>
+          </div>
+        </div>
+        <div id="drawer-body" class="drawer-body"></div>
+      </aside>
+    </div>
+
+    <div id="doc-modal-backdrop" class="backdrop hidden">
+      <section class="modal" aria-label="Markdown 文档预览">
+        <div class="drawer-header">
+          <strong id="doc-modal-title">文档预览（纯文本安全视图）</strong>
+          <button type="button" id="btn-close-doc">关闭</button>
+        </div>
+        <pre id="doc-modal-content" class="doc-pre"></pre>
+      </section>
+    </div>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
